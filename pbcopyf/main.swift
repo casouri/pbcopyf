@@ -7,6 +7,16 @@
 //
 
 import Foundation
+import Cocoa
 
-print("Hello, World!")
 
+let helpMessage = """
+Pateboard copy file: put files into pasteboard.
+
+Usage:
+pbcopyf [options] <files ...>
+
+Options:
+-h --help    Show this message
+-f --force   force overwrite files that exists
+"""
