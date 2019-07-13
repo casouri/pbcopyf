@@ -1,7 +1,7 @@
 #  pbcopyf
 
 Copy, paste and move files from command line for macOS. For example, you can put some files to
-pasteboard by `pbcopyf` and use <kbd>⌘+V<\kbd> in Finder to paste it. Basically:
+pasteboard by `pbcopyf` and use <kbd>⌘+V</kbd> in Finder to paste it. Basically:
 ```
  ⌘C = pbcopyf
  ⌘V = pbpastef
