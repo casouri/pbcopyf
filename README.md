@@ -16,7 +16,7 @@ NOTICE: these tools haven't gone through extensive tests, so don't use them on i
 
 ## Binary
 
-Grab the binary from [here](https://github.com/casouri/pbcopyf/releases)
+Grab the binaries from [here](https://github.com/casouri/pbcopyf/releases)
 
 ## Compile from source
 
