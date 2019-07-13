@@ -41,12 +41,7 @@ enum PasteboardError: Error {
 }
 
 func completePath(of filePathArray:[String], relativeTo directory:String) throws -> [(URL, URL)] {
-    let directoryURL: URL
-    if !directory.starts(with: "/") {
-        directoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).appendingPathComponent(directory)
-    } else {
-        directoryURL = URL(fileURLWithPath: directory)
-    }
+    let directoryURL = URL(fileURLWithPath: directory).standardizedFileURL
     if !FileManager.default.fileExists(atPath: directoryURL.path) {
         throw FileError.FileNotFound("\(directoryURL.path) does not exist")
     }
