@@ -127,27 +127,30 @@ func moveFiles(filePathArray:[String], to destDirectory:String, forcefully force
 func destDirectoryAndForce() throws -> (String, Bool) {
     let errorMessage = "Need target directory"
     // get arguments
-    guard let argument = CommandLine.arguments[safe: 1] else {
+    let argumentArray = CommandLine.arguments.dropFirst()
+    var force = false
+    var destDirectory:String? = nil
+    // handle options
+    if argumentArray.count == 0 {
         throw ProgramError.NotEnoughArguments(errorMessage)
     }
-    var force = false
-    var destDirectory = ""
-    // handle options
-    switch argument {
-    case "-h", "--help":
-        print(helpMessage)
-        throw ProgramError.Terminate()
-    case "-f", "--force":
-        force = true
-        if let directory = CommandLine.arguments[safe: 2] {
-            destDirectory = directory
-        } else {
-            throw ProgramError.NotEnoughArguments(errorMessage)
+    for argument in argumentArray {
+        switch argument {
+        case "-h", "--help":
+            print(helpMessage)
+            throw ProgramError.Terminate()
+        case "-f", "--force":
+            force = true
+        default:
+            destDirectory = argument
+            break
         }
-    default:
-        destDirectory = argument
     }
-    return (destDirectory, force)
+    if !(destDirectory != nil) {
+        throw ProgramError.NotEnoughArguments(errorMessage)
+    } else {
+       return (destDirectory!, force)
+    }
 }
 
 func getFilesFromPasteboard() -> [String]? {
