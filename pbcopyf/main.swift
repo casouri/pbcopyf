@@ -18,5 +18,17 @@ pbcopyf [options] <files ...>
 
 Options:
 -h --help    Show this message
--f --force   force overwrite files that exists
 """
+
+func main() {
+    do {
+        let filePathArray = try getFilePaths()
+        try putFilesToPasteboard(files: filePathArray)
+    } catch ProgramError.Terminate() {
+        return
+    } catch {
+        print(error)
+    }
+}
+
+main()

@@ -168,3 +168,43 @@ func getFilesFromPasteboard() -> [String]? {
     }
     return filePathArray
 }
+
+func putFilesToPasteboard(files:[String]) throws {
+    // create items
+    let pasteboardItems = files.map { path -> NSPasteboardItem in
+        let item = NSPasteboardItem()
+        let filename = URL(fileURLWithPath: path).lastPathComponent
+        item.setString(path, forType: NSPasteboard.PasteboardType("public.file-url"))
+        item.setString(filename, forType: NSPasteboard.PasteboardType("public.utf8-plain-text"))
+        return item
+    }
+    // write to pasteboard
+    NSPasteboard.general.clearContents() // you have to clear before write
+    if !NSPasteboard.general.writeObjects(pasteboardItems) {
+        throw PasteboardError.FailedToWritePasteboard()
+    }
+}
+
+func getFilePaths() throws -> [String] {
+    // handle options (--help)
+    let errorMessage = "Need at least one file path"
+    let arguments = Array(CommandLine.arguments.dropFirst())
+    var pathArray:[String] = []
+    switch arguments[safe: 0] {
+    case nil:
+        throw ProgramError.NotEnoughArguments(errorMessage)
+    case "-h", "--help":
+        throw ProgramError.Terminate()
+    default:
+        pathArray = arguments
+    }
+    // complete paths
+    pathArray = pathArray.map {path -> String in
+        return URL(fileURLWithPath: path).standardizedFileURL.path
+    }
+    if pathArray.count == 0 {
+        throw ProgramError.NotEnoughArguments(errorMessage)
+    } else {
+        return pathArray
+    }
+}
