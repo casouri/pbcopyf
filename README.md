@@ -26,7 +26,7 @@ Clone the repository, open with Xcode, select each target and build them.
 
 ## pbcopyf
 ```
-Pateboard copy file: put files into pasteboard.
+Pasteboard copy file: put files into the pasteboard.
 
 Usage:
 pbcopyf [options] <files ...>
@@ -37,7 +37,7 @@ Options:
 
 ## pbpastef
 ```
-Pateboard paste file: paste files currently in pasteboard to target directory.
+Pasteboard paste file: paste files in the pasteboard to target directory.
 
 Usage:
 pbpastef [options] <target directory>
@@ -49,10 +49,10 @@ Options:
 
 ## pbmovef
 ```
-Pateboard move file: move files currently in pasteboard to target directory.
+Pasteboard move file: move files in the pasteboard to target directory.
 
 Usage:
-pbpastef [options] <target directory>
+pbmovef [options] <target directory>
 
 Options:
 -h --help    Show this message

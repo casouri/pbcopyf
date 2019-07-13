@@ -10,14 +10,14 @@ import Foundation
 import Cocoa
 
 let helpMessage = """
-Pateboard move file: move files currently in pasteboard to target directory.
+Pasteboard move file: move files currently in pasteboard to target directory.
 
 Usage:
-pbpastef [options] <target directory>
+pbmovef [options] <target directory>
 
 Options:
 -h --help    Show this message
--f --force   force overwrite files that exists
+-f --force   force overwrite files that exist
 """
 
 func main() {

@@ -11,7 +11,7 @@ import Cocoa
 
 
 let helpMessage = """
-Pateboard copy file: put files into pasteboard.
+Pasteboard copy file: put files into pasteboard.
 
 Usage:
 pbcopyf [options] <files ...>
