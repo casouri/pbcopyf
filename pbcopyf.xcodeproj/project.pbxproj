@@ -49,6 +49,7 @@
 		1C1BEEA322D8D1E3009F47B8 /* pbmovef */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pbmovef; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1BEEA522D8D1E3009F47B8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1C1BEEAB22D8D211009F47B8 /* common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
+		1C1BEEAF22D9CB6F009F47B8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1CA2F3E722D781EB0088BAAA /* pbcopyf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pbcopyf; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA2F3EA22D781EB0088BAAA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1CA2F3F822D794840088BAAA /* pbpastef */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pbpastef; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +100,7 @@
 		1CA2F3DE22D781EB0088BAAA = {
 			isa = PBXGroup;
 			children = (
+				1C1BEEAF22D9CB6F009F47B8 /* README.md */,
 				1C1BEEAA22D8D200009F47B8 /* common */,
 				1CA2F3E922D781EB0088BAAA /* pbcopyf */,
 				1CA2F3F922D794840088BAAA /* pbpastef */,
