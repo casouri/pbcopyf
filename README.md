@@ -29,10 +29,10 @@ Clone the repository, open with Xcode, select each target and build them.
 Pasteboard copy file: put files into the pasteboard.
 
 Usage:
-pbcopyf [options] <files ...>
+    pbcopyf [options] <files ...>
 
 Options:
--h --help    Show this message
+    -h --help    Show this message
 ```
 
 ## pbpastef
@@ -40,11 +40,11 @@ Options:
 Pasteboard paste file: paste files in the pasteboard to target directory.
 
 Usage:
-pbpastef [options] <target directory>
+    pbpastef [options] <target directory>
 
 Options:
--h --help    Show this message
--f --force   force overwrite files that exists
+    -h --help    Show this message
+    -f --force   force overwrite files that exists
 ```
 
 ## pbmovef
@@ -52,10 +52,10 @@ Options:
 Pasteboard move file: move files in the pasteboard to target directory.
 
 Usage:
-pbmovef [options] <target directory>
+    pbmovef [options] <target directory>
 
 Options:
--h --help    Show this message
--f --force   force overwrite files that exists
+    -h --help    Show this message
+    -f --force   force overwrite files that exists
 ```
 

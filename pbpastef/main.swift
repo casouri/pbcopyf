@@ -13,11 +13,11 @@ let helpMessage = """
 Patseboard paste file: paste files currently in pasteboard to target directory.
 
 Usage:
-pbpastef [options] <target directory>
+    pbpastef [options] <target directory>
 
 Options:
--h --help    Show this message
--f --force   force overwrite files that exist
+    -h --help    Show this message
+    -f --force   force overwrite files that exist
 """
 
 func main() {

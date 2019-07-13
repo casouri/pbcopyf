@@ -14,10 +14,10 @@ let helpMessage = """
 Pasteboard copy file: put files into pasteboard.
 
 Usage:
-pbcopyf [options] <files ...>
+    pbcopyf [options] <files ...>
 
 Options:
--h --help    Show this message
+    -h --help    Show this message
 """
 
 func main() {

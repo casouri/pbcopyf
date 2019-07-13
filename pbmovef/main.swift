@@ -13,11 +13,11 @@ let helpMessage = """
 Pasteboard move file: move files currently in pasteboard to target directory.
 
 Usage:
-pbmovef [options] <target directory>
+    pbmovef [options] <target directory>
 
 Options:
--h --help    Show this message
--f --force   force overwrite files that exist
+    -h --help    Show this message
+    -f --force   force overwrite files that exist
 """
 
 func main() {
