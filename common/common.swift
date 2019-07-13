@@ -206,6 +206,7 @@ func getFilePaths() throws -> [String] {
     case nil:
         throw ProgramError.NotEnoughArguments(errorMessage)
     case "-h", "--help":
+        print(helpMessage)
         throw ProgramError.Terminate
     default:
         pathArray = arguments
