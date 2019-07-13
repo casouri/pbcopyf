@@ -21,16 +21,16 @@ Options:
 """
 
 func main() {
-    guard let (destDirectory, force) = destDirectoryAndForce() else {
-        return
-    }
-    guard let filePathArray = getFilesFromPasteboard() else {
-        return
-    }
     do {
+        let (destDirectory, force) = try destDirectoryAndForce()
+        guard let filePathArray = getFilesFromPasteboard() else {
+            return
+        }
         try moveFiles(filePathArray: filePathArray, to: destDirectory, forcefully: force)
+    } catch ProgramError.Terminate() {
+        return
     } catch {
-        print(error)
+        print(error.localizedDescription)
     }
 }
 

@@ -31,6 +31,15 @@ enum FileError: Error {
     case FileCannotRead(String)
 }
 
+enum ProgramError: Error {
+    case NotEnoughArguments(String)
+    case Terminate()
+}
+
+enum PasteboardError: Error {
+    case FailedToWritePasteboard()
+}
+
 func completePath(of filePathArray:[String], relativeTo directory:String) throws -> [(URL, URL)] {
     let directoryURL: URL
     if !directory.starts(with: "/") {
@@ -120,25 +129,25 @@ func moveFiles(filePathArray:[String], to destDirectory:String, forcefully force
     try moveFilesInternal(filePairArray: fileArray, forcefully: force)
 }
 
-func destDirectoryAndForce() -> (String, Bool)? {
+func destDirectoryAndForce() throws -> (String, Bool) {
+    let errorMessage = "Need target directory"
+    // get arguments
     guard let argument = CommandLine.arguments[safe: 1] else {
-        print("Not enough arguments")
-        return nil
+        throw ProgramError.NotEnoughArguments(errorMessage)
     }
     var force = false
     var destDirectory = ""
-    
+    // handle options
     switch argument {
     case "-h", "--help":
         print(helpMessage)
-        return nil
+        throw ProgramError.Terminate()
     case "-f", "--force":
         force = true
         if let directory = CommandLine.arguments[safe: 2] {
             destDirectory = directory
         } else {
-            print("Not enough arguments")
-            return nil
+            throw ProgramError.NotEnoughArguments(errorMessage)
         }
     default:
         destDirectory = argument
@@ -147,11 +156,13 @@ func destDirectoryAndForce() -> (String, Bool)? {
 }
 
 func getFilesFromPasteboard() -> [String]? {
+    // get items
     let pasteboard = NSPasteboard.general
     guard let items =  pasteboard.pasteboardItems else {
         print("No files in pasteboard")
         return nil
     }
+    // transform to file paths
     var filePathArray: [String] = []
     for item in items {
         let string = item.string(forType: NSPasteboard.PasteboardType("public.file-url"))
