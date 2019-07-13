@@ -39,7 +39,7 @@ func completePath(of filePathArray:[String], relativeTo directory:String) throws
         directoryURL = URL(fileURLWithPath: directory)
     }
     if !FileManager.default.fileExists(atPath: directoryURL.path) {
-        throw FileError.FileNotFound("\(directoryURL) does not exist")
+        throw FileError.FileNotFound("\(directoryURL.path) does not exist")
     }
     return filePathArray.map { path -> (URL, URL) in
         let sourceFile = URL(fileURLWithPath: path)
