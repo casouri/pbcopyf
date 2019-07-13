@@ -33,11 +33,11 @@ enum FileError: Error {
 
 enum ProgramError: Error {
     case NotEnoughArguments(String)
-    case Terminate()
+    case Terminate
 }
 
 enum PasteboardError: Error {
-    case FailedToWritePasteboard()
+    case FailedToWritePasteboard
 }
 
 func completePath(of filePathArray:[String], relativeTo directory:String) throws -> [(URL, URL)] {
@@ -138,7 +138,7 @@ func destDirectoryAndForce() throws -> (String, Bool) {
         switch argument {
         case "-h", "--help":
             print(helpMessage)
-            throw ProgramError.Terminate()
+            throw ProgramError.Terminate
         case "-f", "--force":
             force = true
         default:
@@ -193,7 +193,7 @@ func putFilesToPasteboard(files fileArray:[String]) throws {
     // write to pasteboard
     NSPasteboard.general.clearContents() // you have to clear before write
     if !NSPasteboard.general.writeObjects(pasteboardItems) {
-        throw PasteboardError.FailedToWritePasteboard()
+        throw PasteboardError.FailedToWritePasteboard
     }
 }
 
@@ -206,7 +206,7 @@ func getFilePaths() throws -> [String] {
     case nil:
         throw ProgramError.NotEnoughArguments(errorMessage)
     case "-h", "--help":
-        throw ProgramError.Terminate()
+        throw ProgramError.Terminate
     default:
         pathArray = arguments
     }

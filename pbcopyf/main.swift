@@ -24,7 +24,7 @@ func main() {
     do {
         let filePathArray = try getFilePaths()
         try putFilesToPasteboard(files: filePathArray)
-    } catch ProgramError.Terminate() {
+    } catch ProgramError.Terminate {
         return
     } catch {
         print(error)

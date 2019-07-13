@@ -27,7 +27,7 @@ func main() {
             return
         }
         try pasteFiles(filePathArray: filePathArray, to: destDirectory, forcefully: force)
-    } catch ProgramError.Terminate() {
+    } catch ProgramError.Terminate {
         return
     } catch {
         print(error)
