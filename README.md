@@ -20,7 +20,7 @@ Grab the binaries from [here](https://github.com/casouri/pbcopyf/releases)
 
 ## Compile from source
 
-Clone the repository, open with Xcode, select each target and build them.
+Clone the repository, open with Xcode, select each target and build them. I think you need to configure the signature before building.
 
 # Usage
 
