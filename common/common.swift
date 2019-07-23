@@ -180,13 +180,12 @@ func putFilesToPasteboard(files fileArray:[String]) throws {
         }
     }
     // create items
-    let pasteboardItems = try fileArray.map { path -> NSPasteboardItem in
+    let pasteboardItems = fileArray.map { path -> NSPasteboardItem in
         let item = NSPasteboardItem()
-        let filename = URL(fileURLWithPath: path).lastPathComponent
-        guard let formatedPath = (path as NSString).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed) else {
-            throw FileError.PathInvalid(path)
-        }
-        item.setString("file://" + formatedPath, forType: NSPasteboard.PasteboardType("public.file-url"))
+        let pathURL = URL(fileURLWithPath: path)
+        let filename = pathURL.lastPathComponent
+        
+        item.setString(pathURL.absoluteString, forType: NSPasteboard.PasteboardType("public.file-url"))
         item.setString(filename, forType: NSPasteboard.PasteboardType("public.utf8-plain-text"))
         return item
     }
